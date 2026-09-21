@@ -1,6 +1,20 @@
-  select
-        id as customer_id,
+with 
+
+source as (
+
+    select * from {{ source('jshop', 'customers') }}
+
+),
+
+renamed as (
+
+    select
+        id,
         first_name,
         last_name
-    -- from raw.jshop.customers
-    from {{ source('jshop', 'customers') }}
+
+    from source
+
+)
+
+select * from renamed
