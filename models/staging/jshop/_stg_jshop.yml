@@ -15,8 +15,9 @@ models:
       - name: customer_id
         data_tests:
           - relationships:
-              to: ref('stg_jshop__customers')
-              field: customer_id
+              arguments:
+                to: ref('stg_jshop__customers')
+                field: customer_id
 
           
           
