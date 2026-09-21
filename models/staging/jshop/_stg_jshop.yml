@@ -1,0 +1,25 @@
+models:
+  - name: stg_jshop__customers
+    columns:
+    - name: customer_id
+      data_tests:
+        - unique
+        - not_null
+
+  - name: stg_jshop__orders
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - relationships:
+              to: ref('stg_jshop__customers')
+              field: customer_id
+
+          
+          
+      
+    
+      
