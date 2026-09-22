@@ -1,0 +1,6 @@
+sources:
+  - name: jstripe
+    database: raw
+    schema: jstripe
+    tables:
+      - name: payment

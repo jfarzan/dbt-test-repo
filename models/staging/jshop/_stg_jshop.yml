@@ -1,0 +1,41 @@
+models:
+  - name: stg_jshop__customers
+    description: customer table with one record per each customer
+    columns:
+    - name: customer_id
+      description: unique customer id. make it primary key
+      data_tests:
+        - unique
+        - not_null
+
+  - name: stg_jshop__orders
+    description: order table. one row per order id
+    columns:
+      - name: order_id
+        description: unique order number. primary key
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_jshop__customers')
+                field: customer_id
+      - name: order_status
+        description: "{{ doc('order_status') }}"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - completed
+                  - shipped
+                  # - returned
+                  - placed
+                  - return_pending
+
+          
+          
+      
+    
+      
