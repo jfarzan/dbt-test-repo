@@ -30,7 +30,7 @@ models:
                 values:
                   - completed
                   - shipped
-                  # - returned
+                  - returned
                   - placed
                   - return_pending
 
